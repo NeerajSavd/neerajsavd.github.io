@@ -1,6 +1,6 @@
 body{
-    background-color: #ffffff;
-    font-family: 'Roboto', sans-serif;
+    background-color: #eeeeee;
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     color: black;
     text-align: center;
@@ -16,6 +16,9 @@ nav {
     display: flex;
     background-color: #333;
     justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 .menu li {
     margin-right: 20px;
@@ -30,48 +33,69 @@ nav {
 #mainImg {
     width: 100%;
 }
+.box-black {
+    background-color: #000000; 
+    color: #ffffff;
+    padding: 20px;
+}
 
 h1 {
-    font-weight: 700;
-    margin: 10px;
+    font-weight: 600;
+    font-size: 48px;
+    color: #b2e8f8;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 h2 {
 
 }
 h3 {
-    margin: 10px;
     font-weight: 400;
+    font-size: 20px;
 }
-h4 {
+.links {
     margin: 10px;
     font-weight: 400;
-    color: #0050ff;
+    font-size: 18px;
+    color: #3a78fc;
+    text-decoration: none;
+}
+.links:hover {
+    text-decoration: underline;
 }
 
-.education {
-    background-color: #f5f5f5; 
-    color: black;
-    padding: 10px;
-    margin : 5px;
-}
-.skills {
-    background-color: #f5f5f5; 
-    color: black;
-    padding: 10px;
-    margin : 5px;
-}
 .container {
     display: grid; grid-template-columns: 1fr 1fr;
+    /* width: 90%; */
+    margin: auto;
 }
 .box-white {
-    background-color: #f5f5f5; 
-    color: black;
+    background-color: #ffffff;
+    color: #000000;
     padding: 10px;
-    margin : 5px;
+    margin: 8px;
+    border-radius: 20px;
 }
-.box-black {
-    background-color: #000000; 
-    color: white;
-    padding: 10px;
-    margin : 5px;
+#skill {
+    width: 50px;
+}
+#skills {
+    margin: 5%;
+}
+#projects {
+    margin: 5%;
+}
+.contact {
+    display: inline-block;
+    color:#333;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+.contact:hover {
+    color: #333;
+    text-decoration: underline;
+}
+#icon {
+    width: 15px;
+    margin-right: 10px;
 }
