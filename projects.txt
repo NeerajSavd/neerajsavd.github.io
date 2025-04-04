@@ -1,0 +1,76 @@
+title: Objectify (Image Segmentation for Drones)
+date: Sep 2024 - Mar 2025
+Developed an image segmentation model using U-Net architecture with a ResNet34 encoder for unmanned aerial vehicle (UAV) applications.
+Implemented transfer learning using PyTorch, achieving a mean IOU of 0.931 and a mean accuracy of 99.7%.
+Optimized the model for real-time object detection and classification of aerial images at 5 images per second.
+Enhanced model performance by introducing data augmentation, weighted cross-entropy loss, and learning rate optimization to reduce false positives and improve accuracy, resulting in a 25% increase in per-class accuracy.
+Collaborated in a team of 4 to conduct research and train 10 versions of the model, documenting improvements.
+description: Developed an image segmentation model using U-Net architecture with a ResNet34 encoder for unmanned aerial vehicle (UAV) applications.
+technologies: Python, PyTorch, Scikit-learn, NumPy, Matplotlib, GitHub
+link: https://github.com/ofjuneskies/senior-design-proj
+
+
+title: User Authentication System for Web Applications
+date: Feb 2024 – June 2024
+Designed and implemented a secure user authentication and authorization system for a web application using Azure Functions, SQL server, and React.js.
+Encrypted passwords to ensure data safety and integrated JWT tokens for secure session management.
+Integrated third-party login functionality with Google and Microsoft accounts for seamless user experience.
+description: Designed and implemented a secure user authentication and authorization system for a web application using Azure Functions, SQL server, and React.js.
+technologies: Azure Functions, SQL Server, React.js, JWT, OAuth2
+
+
+title: Endless Runner Game
+date: June 2024
+Engineered an interactive endless running game using an ATmega32 microcontroller running at 8 MHz, incorporating an LCD, and joystick and keypad for user input.
+Configured crystal oscillator and employed assembly code to increase responsiveness.
+Optimized hardware interface with digital signal processing (DSP) techniques for keypress detection.
+description: Engineered an interactive endless running game using an ATmega32 microcontroller, incorporating an LCD, and joystick and keypad for user input.
+technologies: C, Assembly, Embedded Systems, ATmega32
+
+
+title: Movie Recommender
+date: July 2023
+Designed a personalized movie recommendation web application using Python and Flask for Netflix users.
+Processed 100M+ ratings from 480K users and utilized the Pearson correlation coefficient to interpret user review patterns and enhance recommendation accuracy.
+description: Designed a personalized movie recommendation web application for Netflix users.
+technologies: Python, Flask, NumPy, Pandas
+
+
+title: Image Classification
+date: May 2023 – Jun 2023
+description: Conducted a comprehensive comparative analysis of multiple machine learning models, ranging from K-nearest neighbor to advanced convolutional neural networks (CNN), on the CIFAR-10 dataset.
+technologies: Python, PyTorch, NumPy, Scikit-learn, Matplotlib
+
+
+title: Lego Minifigure Classification
+date: July 2023
+Designed and trained a CNN for classification of LEGO minifigure images, achieving an 98 percent accuracy in image classification.
+Optimized model performance by applying data augmentation techniques and hyperparameter tuning.
+description: Designed and trained a CNN for classification of LEGO minifigure images, achieving an 98 percent accuracy in image classification.
+technologies: Python, PyTorch, NumPy, Matplotlib
+link: https://github.com/NeerajSavd/Lego_Minifigures
+
+
+title: Active Solar Tracker
+date: Sep 2019 – Mar 2020
+Using Convex Lenses with Active Tracking to Engineer an Effective Solar Tracker
+Washington State Science and Engineering Fair
+Developed an innovative solar tracker combining convex lenses with active tracking.
+Conducted extensive research on solar power generation and authored a professionally structed research paper.
+Over 7-months, designed and prototyped solar tracking models using 3d printing, Arduino and C++ code.
+Won third place in the Environmental Engineering category.
+description: Developed an innovative solar tracker combining convex lenses with active tracking.
+technologies: Arduino, C++, 3D Printing, Research
+link: https://github.com/NeerajSavd/WSSEF-Solar-Tracker
+
+
+title: FIRST Robotics Team 7461
+date: Sep 2018 – Apr 2021
+Co-led the design sub-team during the 2018-2019 season and significantly contributed as a founding member.
+Utilized Computer Aided Design (CAD) software to create precise models for manufacturing robot components.
+Guided team members in CAD techniques fostering skill development within the team.
+Won 3 awards in the Pacific Northwest district, including the Rookie All Star award, and competed at the FRC World Championships in Houston, TX during the 2019 season.
+Designed and animated field animation for the team to win the Imagery award during the 2021 season.
+description: Utilized Computer Aided Design (CAD) software to create precise models for manufacturing robot components.
+technologies: OnShape, Machine Shop, Laser Cutting
+link: https://sushisquad.org/

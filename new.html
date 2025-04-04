@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="icon/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Your Name</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const canvas = document.getElementById('constellation-bg');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas to full size of container
+        function resizeCanvas() {
+            const heroSection = canvas.parentElement;
+            canvas.width = heroSection.offsetWidth;
+            canvas.height = heroSection.offsetHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Particle settings
+        const particleCount = 100;
+        const particles = [];
+        const connectionDistance = 150;
+        const mouseInfluenceRadius = 100;
+        const mouseRepelStrength = 0.1;
+        
+        let mouse = {
+            x: null,
+            y: null,
+            radius: mouseInfluenceRadius
+        };
+        
+        // Track mouse position
+        canvas.addEventListener('mousemove', function(e) {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        
+        canvas.addEventListener('mouseleave', function() {
+            mouse.x = null;
+            mouse.y = null;
+        });
+        
+        // Create particles
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2 + 1,
+                vx: Math.random() * 0.25 - 0.125,
+                vy: Math.random() * 0.25 - 0.125,
+                color: '#0078d4'
+            });
+        }
+        
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Update and draw particles
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                
+                // Move particles
+                p.x += p.vx;
+                p.y += p.vy;
+                
+                // Boundary check
+                if (p.x < 0 || p.x > canvas.width) p.vx = -p.vx;
+                if (p.y < 0 || p.y > canvas.height) p.vy = -p.vy;
+                
+                // Mouse interaction
+                if (mouse.x !== null && mouse.y !== null) {
+                    const dx = mouse.x - p.x;
+                    const dy = mouse.y - p.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < mouseInfluenceRadius) {
+                        const angle = Math.atan2(dy, dx);
+                        const force = (mouseInfluenceRadius - distance) / mouseInfluenceRadius;
+                        
+                        p.vx -= Math.cos(angle) * force * mouseRepelStrength;
+                        p.vy -= Math.sin(angle) * force * mouseRepelStrength;
+                    }
+                }
+                
+                // Draw particle
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+                
+                // Connect particles
+                for (let j = i + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        
+                        // Line opacity based on distance
+                        const opacity = 1 - (distance / connectionDistance);
+                        ctx.strokeStyle = `rgba(0, 120, 212, ${opacity * 0.5})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+    });
+    </script>
+
+    <section class="hero">
+        <canvas id="constellation-bg"></canvas>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Name</h1>
+                <p>"Just Because Something Works Doesn't Mean That It Cannot Be Improved" - Black Panther</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm [Your Name], a passionate web developer with a keen eye for design and a love for creating beautiful, functional websites. With over [X years] of experience in web development, I specialize in building responsive, user-friendly websites and applications.</p>
+                    <p>My journey in web development began when [brief story about how you got started]. Since then, I've been constantly learning and expanding my skills to stay up-to-date with the latest technologies and trends in the industry.</p>
+                    <p>When I'm not coding, you can find me [your hobbies or interests]. I believe that a good developer never stops learning, and I'm always looking for new challenges and opportunities to grow.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/400x400" alt="Your Name">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section" style="background-color: #f0f5fa;">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  <h3>Programming</h3>
+                  <p>Python, Java, C++, C#</p>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-laptop-code"></i>
+                  </div>
+                  <h3>Web Development</h3>
+                  <p>HTML, CSS, JavaScript, React</p>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-server"></i>
+                  </div>
+                  <h3>Backend</h3>
+                  <p>Node.js, Azure, Flask</p>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                  </div>
+                  <h3>Database & Tools</h3>
+                  <p>MySQL, GitHub, Azure DevOps</p>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-paint-brush"></i>
+                  </div>
+                  <h3>Design</h3>
+                  <p>Photoshop, Illustrator, Blender, Onshape</p>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-language"></i>
+                  </div>
+                  <h3>Languages</h3>
+                  <p>English, Marathi, Spanish</p>
+                </div>
+            </div>              
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-container">
+                <div class="university-logo">
+                  <img src="uci_logo.png" alt="UC Irvine Logo">
+                </div>
+                <div class="education-details">
+                  <h3>University of California, Irvine</h3>
+                  <div class="degree">Bachelor of Science in Computer Science and Engineering</div>
+                  <div class="date">2021 - 2025</div>
+                  <p></p>
+                </div>
+            </div>
+            <div class="education-container">
+                <div class="university-logo">
+                  <img src="who.png" alt="UC Irvine Logo">
+                </div>
+                <div class="education-details">
+                  <h3>Stanford University</h3>
+                  <div class="degree">Campus Tour</div>
+                  <div class="date">2016</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section" style="background-color: #f0f5fa;">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-container" id="projects-container">
+                <!-- Project cards will be populated here from the text file -->
+                <!-- Placeholder project cards until your data is loaded -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://via.placeholder.com/400x200');"></div>
+                    <div class="project-info">
+                        <h3>E-commerce Website</h3>
+                        <p>A fully responsive e-commerce platform with product catalog, user authentication, and payment integration.</p>
+                        <div class="technologies">
+                            <span class="technology">React</span>
+                            <span class="technology">Node.js</span>
+                            <span class="technology">MongoDB</span>
+                            <span class="technology">Stripe</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out to me with any questions, opportunities, or just to say hello. I'm always open to discussing new projects and ideas.</p>
+                    <div class="contact-links">
+                        <a href="mailto:your.email@example.com">your.email@example.com</a>
+                    </div>
+                    <div class="contact-links" style="margin-top: 20px;">
+                        <a href="tel:+1234567890">+1 (234) 567-890</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script to load projects from your text file
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch the projects.txt file
+            fetch('projects.txt')
+                .then(response => response.text())
+                .then(data => {
+                    console.log('loading projects.txt:');
+                    // Parse the data according to your file format
+                    const projects = parseProjectData(data);
+                    
+                    // Clear the placeholder projects
+                    document.getElementById('projects-container').innerHTML = '';
+                    
+                    // Add each project to the page
+                    projects.forEach(project => {
+                        addProjectToPage(project);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading projects.txt:', error);
+                });
+        });
+        
+        function parseProjectData(data) {
+            // This function should parse your text file format
+            // Example implementation (adjust based on your actual file format):
+            const projects = [];
+            const projectBlocks = data.split('\n\n');
+            console.log('projectBlocks.length:', projectBlocks.length);
+            
+            projectBlocks.forEach(block => {
+                if (!block.trim()) return;
+                
+                const lines = block.split('\n');
+                const project = {
+                    technologies: []
+                };
+                
+                lines.forEach(line => {
+                    if (line.includes(':')) {
+                        const [key, value] = line.split(':').map(part => part.trim());
+                        
+                        if (key === 'technologies') {
+                            project.technologies = value.split(',').map(tech => tech.trim());
+                        } else {
+                            project[key] = value;
+                        }
+                    }
+                });
+                
+                if (project.title) {
+                    projects.push(project);
+                }
+            });
+            
+            return projects;
+        }
+        
+        function addProjectToPage(project) {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card';
+            
+            // Create technologies HTML
+            const techHTML = project.technologies.map(tech => 
+                `<span class="technology">${tech}</span>`
+            ).join('');
+            
+            // Set the HTML content
+            projectCard.innerHTML = `
+                <div class="project-image" style="background-image: url('${project.image || 'https://via.placeholder.com/400x200'}');"></div>
+                <div class="project-info">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <div class="technologies">
+                        ${techHTML}
+                    </div>
+                    ${project.link ? `<a href="${project.link}" class="btn">View Project</a>` : ''}
+                </div>
+            `;
+            
+            // Add to the container
+            document.getElementById('projects-container').appendChild(projectCard);
+        }
+    </script>
+</body>
+</html>
