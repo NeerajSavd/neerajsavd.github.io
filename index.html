@@ -1,80 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neeraj Savdekar</title>
-  <link rel="icon" type="image/x-icon" href="icon/favicon.ico">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="icon/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
 <body>
-  <p>_</p>
-  <nav>
-    <ul class="menu">
-        <li><a href="#Home">Home</a></li>
-        <li><a href="#Skills">Skills</a></li>
-        <li><a href="#Projects">Projects</a></li>
-        <li><a href="#Contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <section id="Home">
-    <img src="Icons/main.png" id="mainImg">
-    <header class="box-black">
-      <h1>Neeraj Savdekar</h1>
-      <h3>Aspiring Software Engineer.</h3>
-      <a href="https://linkedin/in/neeraj-savdekar/" class="links"> Open for Hire > </a>
-      <br>
-      <br>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Your Name</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-  </section>
 
-  <section id="Skills">
-    <h2>Skills</h2>
-    <div class="container">
-      <div class="box-white">
-        <h3>Languages</h3>
-        <p>Programming: Python, Java, C++, C#, JavaScript</p>
-        <p>Markup: HTML, CSS</p>
-        <p>Database: SQL</p>
-        <p>Human: English (native), Marathi (native), Spanish (basic)</p>
-      </div>
-      <div class="box-white">
-        <h3>Tools</h3>
-        <p>Azure, GitHub, Azure DevOps, React.js, PyTorch, Flask</p>
-      </div>
-    </div>
-    <br>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <canvas id="constellation-bg"></canvas>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Name</h1>
+                <p>"Just Because Something Works Doesn't Mean That It Cannot Be Improved" - Black Panther</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
 
-  <section id="Education">
-    <h2>Education</h2>
-    <div class="container">
-      <div class="box-white">
-        <h3>University of California, Irvine</h3>
-        <p>Bachelor of Science in Computer Science and Engineering</p>
-        <p>Graduated: March 2025</p>
-      </div>
-      <div class="box-white">
-        <h3>Stanford University</h3>
-        <p>Campus tour in 2016</p>
-      </div>
-    </div>
-    <br>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Neeraj Savdekar, a passionate web developer with a keen eye for design and a love for creating beautiful, functional websites. With over [X years] of experience in web development, I specialize in building responsive, user-friendly websites and applications.</p>
+                    <p>When I'm not coding, you can find me [your hobbies or interests].</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/400x400" alt=":)">
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="Projects">
-    <br>
-  </section>
+    <!-- Skills Section -->
+    <section id="skills" class="section" style="background-color: #f0f5fa;">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  <h3>Programming</h3>
+                  <p>Python, Java, C++, C#</p>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-laptop-code"></i>
+                  </div>
+                  <h3>Web Development</h3>
+                  <p>HTML, CSS, JavaScript, React</p>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-server"></i>
+                  </div>
+                  <h3>Backend</h3>
+                  <p>Node.js, Azure, Flask</p>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                  </div>
+                  <h3>Database & Tools</h3>
+                  <p>MySQL, GitHub, Azure DevOps</p>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-paint-brush"></i>
+                  </div>
+                  <h3>Design</h3>
+                  <p>Photoshop, Illustrator, Blender, Onshape</p>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class="fas fa-language"></i>
+                  </div>
+                  <h3>Languages</h3>
+                  <p>English, Marathi, Spanish</p>
+                </div>
+            </div>              
+        </div>
+    </section>
 
-  <section id="Contact">
-    <h2>Contact</h2>
-    <a href="mailto:nsavdekar@outlook.com" class="contact"> <span>Email</span>
-      <img src="Icons/email.png" alt="email" id="icon">
-    </a>
-    <a href="https://www.linkedin.com/in/neeraj-savdekar/" class="contact"> <span>LinkedIn</span>
-      <img src="Icons/linkedin.png" alt="linkedin" id="icon">
-    </a>
-    <a href="https://github.com/NeerajSavd/" class="contact"> <span>GitHub</span>
-      <img src="Icons/github.png" alt="github" id="icon">
-  </section>
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-container">
+                <div class="university-logo">
+                  <img src="Images/uci_logo.png" alt="UC Irvine Logo">
+                </div>
+                <div class="education-details">
+                  <h3>University of California, Irvine</h3>
+                  <div class="degree">Bachelor of Science in Computer Science and Engineering</div>
+                  <div class="date">2021 - 2025</div>
+                  <p></p>
+                </div>
+            </div>
+            <div class="education-container">
+                <div class="university-logo">
+                  <img src="Images/who.png" alt="UC Irvine Logo">
+                </div>
+                <div class="education-details">
+                  <h3>Stanford University</h3>
+                  <div class="degree">Campus Tour</div>
+                  <div class="date">2016</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section" style="background-color: #f0f5fa;">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-container" id="projects-container">
+                <!-- Project cards will be populated here from the text file -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <a href="mailto:your.email@example.com" class="social-button email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/your-profile" class="social-button linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/your-username" class="social-button github">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+    </footer>
+
+    <script src="animation.js"></script>
+    <script src="projects.js"></script>
 </body>
+</html>
