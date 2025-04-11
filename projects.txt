@@ -1,13 +1,13 @@
 title: Objectify (Image Segmentation for Drones)
 date: Sep 2024 - Mar 2025
 description: Developed an image segmentation model using U-Net architecture with a ResNet34 encoder for unmanned aerial vehicle (UAV) applications.
-technologies: Python, PyTorch, Scikit-learn, NumPy, Matplotlib, GitHub
+technologies: Python, PyTorch, CNN, U-Net, YOLO, Transfer Learning, Matplotlib, GitHub
 fullDescription: Developed an image segmentation model using U-Net architecture with a ResNet34 encoder for unmanned aerial vehicle (UAV) applications. Implemented transfer learning using PyTorch, achieving a mean IOU of 0.931 and a mean accuracy of 99.7%. Optimized the model for real-time object detection and classification of aerial images at 5 images per second. Enhanced model performance by introducing data augmentation, weighted cross-entropy loss, and learning rate optimization to reduce false positives and improve accuracy, resulting in a 25% increase in per-class accuracy. Collaborated in a team of 4 to conduct research and train 10 versions of the model, documenting improvements.
 link: https://github.com/ofjuneskies/senior-design-proj
 image: Images/objectify.png
 
 
-title: User Authentication System for Web Applications
+title: User Authentication System
 date: Feb 2024 – June 2024
 fullDescription: Designed and implemented a secure user authentication and authorization system for a web application using Azure Functions, SQL server, and React.js. Encrypted passwords to ensure data safety and integrated JWT tokens for secure session management. Integrated third-party login functionality with Google and Microsoft accounts for seamless user experience.
 description: Designed and implemented a secure user authentication and authorization system for a web application using Azure Functions, SQL server, and React.js.
@@ -23,27 +23,44 @@ technologies: C, Assembly, Embedded Systems, ATmega32
 image: Images/runner.png
 
 
+title: Crux Compiler
+date: Apr 2024 - June 2024
+fullDescription: Built a compiler in Java that translates programs from a small imperative programming language (Crux) into executable x86 assembly, following a multi-stage approach from parsing to code generation. Implemented a pipeline using ANTLR for parsing, with distinct stages for abstract syntax tree creation, semantic checking, intermediate representation, and final assembly code generation.
+description: Built a compiler in Java that translates programs from a small imperative programming language (Crux) into executable x86 assembly.
+technologies: Java, Crux, ANTLR, x86 Assembly
+image: Images/crux.png
+
+
+title: Sudoku Solver
+date: Feb 2024 - Mar 2024
+fullDescription: Developed a Sudoku solver using backtracking and constraint satisfaction techniques. Implemented Minimum Remaining Value (MRV) heuristic with tie-breaking, Least Constraining Value (LCV) heuristic, forward checking, and Norvig Check to optimize the solving process. Utilized Python for implementation and achieved a 96% success rate on easy to hard puzzles.
+description: Developed a Sudoku solver using backtracking and constraint satisfaction techniques.
+technologies: Python, Artificial Intelligence
+image: Images/sudoku.png
+
+
 title: Movie Recommender
 date: July 2023
 fullDescription: Designed a personalized movie recommendation web application using Python and Flask for Netflix users. Processed 100M+ ratings from 480K users and utilized the Pearson correlation coefficient to interpret user review patterns and enhance recommendation accuracy.
 description: Designed a personalized movie recommendation web application for Netflix users.
-technologies: Python, Flask, NumPy, Pandas
-
-
-title: Image Classification
-date: May 2023 – Jun 2023
-description: Conducted a comprehensive comparative analysis of multiple machine learning models, ranging from K-nearest neighbor to advanced convolutional neural networks (CNN), on the CIFAR-10 dataset.
-technologies: Python, PyTorch, NumPy, Scikit-learn, Matplotlib
-image: Images/cifar.png
+technologies: Python, Flask, Pandas
 
 
 title: Lego Minifigure Classification
 date: July 2023
 fullDescription: Designed and trained a CNN for classification of LEGO minifigure images, achieving an 98 percent accuracy in image classification. Optimized model performance by applying data augmentation techniques and hyperparameter tuning.
 description: Designed and trained a CNN for classification of LEGO minifigure images, achieving an 98 percent accuracy in image classification.
-technologies: Python, PyTorch, NumPy, Matplotlib
+technologies: Python, PyTorch, Matplotlib, CNN
 link: https://github.com/NeerajSavd/Lego_Minifigures
 image: Images/lego.png
+
+
+title: Image Classification
+date: May 2023 – June 2023
+fullDescription: Conducted a comprehensive comparative analysis of multiple machine learning models, ranging from K-nearest neighbor to advanced convolutional neural networks (CNN), on the CIFAR-10 dataset. 
+description: Conducted a comprehensive comparative analysis of multiple machine learning models on the CIFAR-10 dataset.
+technologies: Python, PyTorch, Scikit-learn, Matplotlib, Machine Learning
+image: Images/cifar.png
 
 
 title: Active Solar Tracker
@@ -59,6 +76,6 @@ title: FIRST Robotics Team 7461
 date: Sep 2018 – Apr 2021
 fullDescription: Co-led the design sub-team during the 2018-2019 season and significantly contributed as a founding member. Utilized Computer Aided Design (CAD) software to create precise models for manufacturing robot components. Guided team members in CAD techniques fostering skill development within the team. Won 3 awards in the Pacific Northwest district, including the Rookie All Star award, and competed at the FRC World Championships in Houston, TX during the 2019 season. Designed and animated field animation for the team to win the Imagery award during the 2021 season.
 description: Utilized Computer Aided Design (CAD) software to create precise models for manufacturing robot components.
-technologies: OnShape, Machine Shop, Laser Cutting
+technologies: OnShape, Machining, Laser Cutting, Blender, Electronics
 link: https://sushisquad.org/
 image: Images/frc7461binarycirclesantares.png
