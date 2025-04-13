@@ -19,7 +19,7 @@ title: Endless Runner Game
 date: June 2024
 fullDescription: Engineered an interactive endless running game using an ATmega32 microcontroller running at 8 MHz, incorporating an LCD, and joystick and keypad for user input. Configured crystal oscillator and employed assembly code to increase responsiveness. Optimized hardware interface with digital signal processing (DSP) techniques for keypress detection.
 description: Engineered an interactive endless running game using an ATmega32 microcontroller, incorporating an LCD, and joystick and keypad for user input.
-technologies: C, Assembly, Embedded Systems, ATmega32
+technologies: C, Assembly, Embedded Systems
 image: Images/runner.png
 
 
@@ -44,6 +44,7 @@ date: July 2023
 fullDescription: Designed a personalized movie recommendation web application using Python and Flask for Netflix users. Processed 100M+ ratings from 480K users and utilized the Pearson correlation coefficient to interpret user review patterns and enhance recommendation accuracy.
 description: Designed a personalized movie recommendation web application for Netflix users.
 technologies: Python, Flask, Pandas
+link: https://github.com/NeerajSavd/Movie-Recs
 
 
 title: Lego Minifigure Classification
