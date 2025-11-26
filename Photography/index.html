@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neeraj's Photography</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Neeraj's Photography</h1>
+    </header>
+
+    <button class="back-btn" id="back-btn" aria-label="Back to categories">←</button>
+
+    <div class="category-container">
+        <!-- Category boxes are generated from `images.csv` via `script.js` -->
+    </div>
+
+    <section class="gallery-container">
+        <!-- Gallery items are loaded from `images.csv` via `script.js` -->
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-img" id="lightbox-img" src="">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

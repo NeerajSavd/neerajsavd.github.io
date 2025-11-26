@@ -1,0 +1,263 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Dark background for photos */
+    color: #ffffff;
+    text-align: center;
+}
+
+/* static header */
+header {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+}
+
+header h1 {
+    font-size: 16px;
+    background-color: aliceblue;
+    color: black;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    position: fixed;
+    padding: 10px 20px;
+}
+
+/* Layout: vertical list of words on top of the preview image */
+.category-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.category-list {
+    list-style: none;
+    display: flex;
+    left: 20px;
+    flex-direction: column;
+    gap: 12px;
+    /* overlay the words on top of the preview image */
+    position: absolute;
+    z-index: 4;
+    pointer-events: none; /* allow hover events to pass through to preview, enable per-item */
+
+    /* Changed: align items to left so boxes hug content and start at the left edge */
+    align-items: flex-start;
+    text-align: left;
+}
+
+.electrolize-regular {
+  font-family: "Electrolize", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.category-word {
+    padding: 6px 10px; /* reduced padding so box more tightly fits text */
+    cursor: pointer;
+    font-family: "Electrolize", sans-serif;
+    font-size: 80px;
+    color: black;
+    background-color: aliceblue;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* semi opaque */
+    opacity: 0.65;
+    transition: transform 0.18s ease, color 0.12s ease;
+    pointer-events: auto; /* re-enable for clickable items */
+    display: inline-block;
+    width: auto;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.category-preview {
+    width: 100%;
+    height: 100vh;
+    border-radius: 8px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.04);
+    position: relative;
+}
+
+.category-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0;
+    transform: scale(1);
+    will-change: opacity, transform;
+}
+
+@media (max-width: 700px) {
+    .category-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    .category-preview {
+        width: 100%;
+        height: 160px;
+    }
+    .category-list {
+        position: static;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+
+        /* Ensure left-aligned behavior only on wider viewports; keep centered on small screens */
+        align-items: center;
+        text-align: center;
+    }
+    .category-word {
+        font-size: 20px;
+        letter-spacing: 1px;
+        padding: 6px 10px;
+        display: inline-block; /* keep shrink-to-content */
+        white-space: nowrap;
+    }
+}
+
+/* Gallery Grid */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+    /* Animation for filtering */
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Hover Effect */
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    transition: bottom 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    bottom: 0;
+}
+
+/* Hidden Class for Filtering */
+.gallery-item.hide {
+    display: none;
+}
+
+.gallery-item.show {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Make gallery items load in from bottom when they enter viewport */
+.gallery-item {
+    /* Start hidden and slightly below; revealed when scrolled into view */
+    opacity: 0;
+    transform: translateY(300px);
+    will-change: transform, opacity;
+    transition: transform 0.6s cubic-bezier(.2,.8,.2,1), opacity 0.6s ease;
+}
+
+.gallery-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Lightbox (Full Screen) */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Back button shown when a category is open */
+
+.back-btn {
+    display: none; /* toggled by JS */
+    position: fixed; /* sticky/fixed so it's always visible */
+    top: 60px;
+    left: 15px;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    z-index: 1200;
+    backdrop-filter: blur(4px);
+}
+
+.back-btn:hover {
+    background: rgba(255,255,255,0.03);
+}
+
+/* When categories hidden, give gallery more room */
+.gallery-expanded {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
