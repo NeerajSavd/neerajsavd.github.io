@@ -1,263 +1,245 @@
-/* General Reset */
+/*
+ * Aesthetic: Futuristic, Minimalist, High Contrast, Bold Typography
+ */
+
+:root {
+    /* Core Colors - Defaulting to the 'Dark/Futuristic' vibe */
+    --bg-color: #0a0a0a;       /* Very dark grey/black */
+    --text-color: #ffffff;     /* Pure white */
+    --accent-color: #333333;   /* Dark grey for subtle borders/elements */
+    --hover-color: #888888;    /* Grey for hover states */
+    
+    /* Typography */
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-display: 'Oswald', 'Impact', sans-serif; /* Bold, condensed for that "Futuristic" header look */
+    
+    /* Spacing */
+    --spacing-unit: 1rem;
+    --container-width: 1400px; /* Wide layout for photography */
+}
+
+/* Optional Light Theme Override (Class-based) */
+.light-theme {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --accent-color: #eeeeee;
+    --hover-color: #555555;
+}
+
+/* Global Reset & Base Styles */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212; /* Dark background for photos */
-    color: #ffffff;
-    text-align: center;
-}
-
-/* static header */
-header {
-    position: fixed;
-    z-index: 10;
-    top: 0;
-}
-
-header h1 {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
     font-size: 16px;
-    background-color: aliceblue;
-    color: black;
-    letter-spacing: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+/* Typography Utilities */
+h1, h2, h3 {
+    font-weight: 700;
     text-transform: uppercase;
-    position: fixed;
-    padding: 10px 20px;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-unit);
 }
 
-/* Layout: vertical list of words on top of the preview image */
-.category-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    position: relative;
+h1 {
+    font-size: clamp(2.5rem, 5vw, 6rem); /* Responsive giant text */
+    line-height: 1.1;
+    margin-top: calc(var(--spacing-unit) * 4);
+    margin-bottom: calc(var(--spacing-unit) * 2);
 }
 
-.category-list {
-    list-style: none;
-    display: flex;
-    left: 20px;
-    flex-direction: column;
-    gap: 12px;
-    /* overlay the words on top of the preview image */
-    position: absolute;
-    z-index: 4;
-    pointer-events: none; /* allow hover events to pass through to preview, enable per-item */
-
-    /* Changed: align items to left so boxes hug content and start at the left edge */
-    align-items: flex-start;
-    text-align: left;
+h2 {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: var(--spacing-unit);
+    margin-top: calc(var(--spacing-unit) * 4);
 }
 
-.electrolize-regular {
-  font-family: "Electrolize", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    color: rgba(255, 255, 255, 0.85); /* Slightly muted text for readability */
 }
 
-.category-word {
-    padding: 6px 10px; /* reduced padding so box more tightly fits text */
-    cursor: pointer;
-    font-family: "Electrolize", sans-serif;
-    font-size: 80px;
-    color: black;
-    background-color: aliceblue;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    /* semi opaque */
-    opacity: 0.65;
-    transition: transform 0.18s ease, color 0.12s ease;
-    pointer-events: auto; /* re-enable for clickable items */
-    display: inline-block;
-    width: auto;
-    white-space: nowrap;
-    text-align: left;
+/* In Light mode, ensure paragraph text is dark enough */
+.light-theme p {
+    color: rgba(0, 0, 0, 0.85);
 }
 
-.category-preview {
-    width: 100%;
-    height: 100vh;
-    border-radius: 8px;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255,255,255,0.04);
-    position: relative;
-}
-
-.category-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    opacity: 0;
-    transform: scale(1);
-    will-change: opacity, transform;
-}
-
-@media (max-width: 700px) {
-    .category-container {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-    }
-    .category-preview {
-        width: 100%;
-        height: 160px;
-    }
-    .category-list {
-        position: static;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-
-        /* Ensure left-aligned behavior only on wider viewports; keep centered on small screens */
-        align-items: center;
-        text-align: center;
-    }
-    .category-word {
-        font-size: 20px;
-        letter-spacing: 1px;
-        padding: 6px 10px;
-        display: inline-block; /* keep shrink-to-content */
-        white-space: nowrap;
-    }
-}
-
-/* Gallery Grid */
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 15px;
-    padding: 20px;
-    max-width: 1200px;
+/* Layout Container */
+.container {
+    max-width: var(--container-width);
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    cursor: pointer;
-    /* Animation for filtering */
-    transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-/* Hover Effect */
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-.overlay {
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    transition: bottom 0.3s ease;
-}
-
-.gallery-item:hover .overlay {
-    bottom: 0;
-}
-
-/* Hidden Class for Filtering */
-.gallery-item.hide {
-    display: none;
-}
-
-.gallery-item.show {
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* Make gallery items load in from bottom when they enter viewport */
-.gallery-item {
-    /* Start hidden and slightly below; revealed when scrolled into view */
-    opacity: 0;
-    transform: translateY(300px);
-    will-change: transform, opacity;
-    transition: transform 0.6s cubic-bezier(.2,.8,.2,1), opacity 0.6s ease;
-}
-
-.gallery-item.in-view {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Lightbox (Full Screen) */
-.lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    display: none; /* Hidden by default */
-    justify-content: center;
+/* Navigation (Mimicking the minimal list style) */
+header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 40px 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: sticky;
+    top: 0;
+    background-color: rgba(10, 10, 10, 0.9); /* Semi-transparent */
+    backdrop-filter: blur(5px);
     z-index: 1000;
 }
 
-/* Back button shown when a category is open */
+.logo {
+    font-weight: 900;
+    font-size: 1.2rem;
+}
 
-.back-btn {
-    display: none; /* toggled by JS */
-    position: fixed; /* sticky/fixed so it's always visible */
-    top: 60px;
-    left: 15px;
-    background: rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: #fff;
-    padding: 8px 14px;
-    border-radius: 8px;
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav li {
+    position: relative;
+}
+
+/* Numbered Menu Items Style (01 Home, 02 Travel...) */
+nav li span.num {
+    font-size: 0.7em;
+    opacity: 0.5;
+    margin-right: 5px;
+    vertical-align: top;
+}
+
+/* Photography Grid System */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+/* Specific layout adjustments for wider screens to mimic 'masonry' feel */
+@media (min-width: 1000px) {
+    .photo-grid {
+        grid-template-columns: repeat(12, 1fr);
+    }
+    
+    /* Mix of span sizes for dynamic "magazine" layout */
+    .photo-item {
+        grid-column: span 6; /* Default half width */
+    }
+    
+    .photo-item.wide {
+        grid-column: span 12; /* Full width */
+    }
+    
+    .photo-item.portrait {
+        grid-column: span 4; /* Third width */
+    }
+}
+
+.photo-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(20%); /* Slight desaturation for mood */
+    transition: filter 0.3s ease, transform 0.5s ease;
+}
+
+.photo-item img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.01);
+}
+
+/* Story/Text Section */
+.story-block {
+    margin: 100px 0;
+    padding-left: 5%;
+}
+
+.story-block p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    margin-top: 150px;
+    padding: 50px 0;
+    border-top: 1px solid var(--accent-color);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+footer h4 {
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer li {
+    margin-bottom: 10px;
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.mt-large { margin-top: 100px; }
+.mb-large { margin-bottom: 100px; }
+
+/* Custom "Back to Top" or decorative lines */
+.line-separator {
+    height: 1px;
+    background: var(--accent-color);
+    width: 100%;
+    margin: 50px 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+button {
+    background: none;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     cursor: pointer;
-    font-weight: 600;
-    z-index: 1200;
-    backdrop-filter: blur(4px);
-}
-
-.back-btn:hover {
-    background: rgba(255,255,255,0.03);
-}
-
-/* When categories hidden, give gallery more room */
-.gallery-expanded {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    box-shadow: 0 0 20px rgba(255,255,255,0.1);
-}
-
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
