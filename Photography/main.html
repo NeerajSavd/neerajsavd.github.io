@@ -7,42 +7,93 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main class="container">
-        <section class="text-center mt-large fade-in">
-            <h1>Photography</h1>
+
+    <div id="app-container">
+        
+        <section id="view-home" class="view">
+            <div class="container">
+                <header class="home-header fade-in">
+                    <h1>PORTFOLIO</h1>
+                    <p class="subtitle">Neeraj's Photography</p>
+                </header>
+
+                <div class="category-grid">
+                    <div class="category-block fade-in" data-category="Nepal">
+                        <div class="category-bg-container">
+                            <img src="../Photos_Resized/Nepal/20251109_034953950_iOS.jpg" alt="Nepal" class="category-img">
+                        </div>
+                        <div class="category-overlay">
+                            <h2>Nepal</h2>
+                            <span class="explore-btn">Explore</span>
+                        </div>
+                    </div>
+
+                    <div class="category-block fade-in" data-category="Hawaii">
+                        <div class="category-bg-container">
+                            <img src="../Photos_Resized/Hawaii/20190413_004708999_iOS.jpg" alt="Hawaii" class="category-img">
+                        </div>
+                        <div class="category-overlay">
+                            <h2>Hawaii</h2>
+                            <span class="explore-btn">Explore</span>
+                        </div>
+                    </div>
+
+                    <div class="category-block fade-in" data-category="Washington">
+                        <div class="category-bg-container">
+                            <img src="../Photos_Resized/Washington/IMG_5568-3.jpg" alt="Pacific Northwest" class="category-img">
+                        </div>
+                        <div class="category-overlay">
+                            <h2>Washington</h2>
+                            <span class="explore-btn">Explore</span>
+                        </div>
+                    </div>
+
+                    <div class="category-block fade-in" data-category="Aviation">
+                        <div class="category-bg-container">
+                            <img src="../Photos_Resized/Aviation/IMG_7635.jpg" alt="Aviation" class="category-img">
+                        </div>
+                        <div class="category-overlay">
+                            <h2>Aviation</h2>
+                            <span class="explore-btn">Explore</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <footer class="home-footer">
+                    <p>&copy; 2025 Neeraj. All rights reserved.</p>
+                </footer>
+            </div>
         </section>
 
-        <section class="text-center mb-medium fade-in">
-            <h2><a href = "/Photography/filmstrip.html?category=Nepal">
-                Nepal
-            </a></h2>
+        <section id="view-gallery" class="view">
+            <button id="back-btn" aria-label="Back to Home">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back
+            </button>
+            
+            <div class="gallery-track-container">
+                <div class="gallery-track" id="track">
+                    </div>
+            </div>
+
+            <div class="ui-layer">
+                <div class="thumbnails-mask">
+                    <div class="thumbnails-track" id="thumb-track">
+                        </div>
+                </div>
+                <div class="gallery-info">
+                    <span id="gallery-title">CATEGORY</span>
+                </div>
+            </div>
         </section>
 
-        <section class="text-center mb-large fade-in">
-            <h2><a href = "/Photography/filmstrip.html?category=Hawaii">
-                Hawaii
-            </a></h2>
-        </section>
+    </div>
 
-        <section class="text-center mb-large fade-in">
-            <h2><a href = "/Photography/filmstrip.html?category=Washington">
-                Washington
-            </a></h2>
-        </section>
-
-        <section class="text-center mb-large fade-in">
-            <h2><a href = "/Photography/filmstrip.html?category=Aviation">
-                Aviation
-            </a></h2>
-        </section>
-    </main>
-
-    <footer class="container mt-large">
-    </footer>
-
-    <script src="main.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
